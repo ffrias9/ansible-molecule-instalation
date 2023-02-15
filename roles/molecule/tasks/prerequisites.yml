@@ -1,0 +1,33 @@
+---
+  - name: Install Python3.9 and Python3-pip
+    package:
+      name:
+        - python39
+        - python3-pip
+      state: present
+      allowerasing: yes
+
+  - name: Update alternatives
+    shell: update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+    args:
+      executable: /bin/bash
+
+  - name: Install and upgrade wheel and pip
+    become: false
+    pip:
+      name:
+        - wheel
+        - pip
+      state: latest
+      extra_args: --user
+
+  - name: Import .profile file
+    copy:
+      src: .profile
+      dest: "/home/{{ user }}/.profile"
+
+  - name: Source .profile
+    shell: "source /home/{{ user }}/.profile"
+    args:
+      executable: /bin/bash
+

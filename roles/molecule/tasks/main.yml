@@ -1,0 +1,9 @@
+---
+  - name: Pretasks
+    include_tasks: pretasks.yml
+
+  - name: Prerequisites
+    include_tasks: prerequisites.yml
+
+  - name: Install Ansible and Ansible molecule with Docker
+    include_tasks: install.yml

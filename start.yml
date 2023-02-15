@@ -1,0 +1,7 @@
+---
+  - name: "Docker & molecule roles"
+    hosts: molecule
+    become: true
+    roles:
+      - molecule
+      - docker

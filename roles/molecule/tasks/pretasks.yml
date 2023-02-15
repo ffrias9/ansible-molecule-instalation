@@ -1,0 +1,8 @@
+---
+  - name: Remove packages
+    package:
+      name:
+        - python3
+        - python2
+        - ansible
+      state: absent

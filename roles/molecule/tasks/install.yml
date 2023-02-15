@@ -1,0 +1,9 @@
+---
+  - name: Install Ansible, molecule and molecule[docker]
+    become: false
+    pip:
+      name:
+        - ansible
+        - molecule
+        - molecule[docker]
+      extra_args: --user
